@@ -101,6 +101,9 @@ tasks {
     }
 
     signPlugin {
+        if (System.getenv("PRIVATE_KEY_PASSWORD") == null) {
+            return@signPlugin
+        }
         val decoder = Base64.getDecoder()
         certificateChain.set(String(decoder.decode(System.getenv("CERTIFICATE_CHAIN"))))
         privateKey.set(String(decoder.decode(System.getenv("PRIVATE_KEY"))))
@@ -109,6 +112,9 @@ tasks {
 
     publishPlugin {
         dependsOn("patchChangelog")
+        if (System.getenv("PUBLISH_TOKEN") == null) {
+            return@publishPlugin
+        }
         val decoder = Base64.getDecoder()
         token.set(String(decoder.decode(System.getenv("PUBLISH_TOKEN"))))
         // pluginVersion is based on the SemVer (https://semver.org) and supports pre-release labels, like 2.1.7-alpha.3
