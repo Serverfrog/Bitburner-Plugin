@@ -1,5 +1,6 @@
 import org.jetbrains.changelog.markdownToHTML
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import java.util.*
 
 fun properties(key: String) = project.findProperty(key).toString()
 
@@ -100,14 +101,16 @@ tasks {
     }
 
     signPlugin {
-        certificateChain.set(System.getenv("CERTIFICATE_CHAIN"))
-        privateKey.set(System.getenv("PRIVATE_KEY"))
-        password.set(System.getenv("PRIVATE_KEY_PASSWORD"))
+        val decoder = Base64.getDecoder()
+        certificateChain.set(String(decoder.decode(System.getenv("CERTIFICATE_CHAIN"))))
+        privateKey.set(String(decoder.decode(System.getenv("PRIVATE_KEY"))))
+        password.set(String(decoder.decode(System.getenv("PRIVATE_KEY_PASSWORD"))))
     }
 
     publishPlugin {
         dependsOn("patchChangelog")
-        token.set(System.getenv("PUBLISH_TOKEN"))
+        val decoder = Base64.getDecoder()
+        token.set(String(decoder.decode(System.getenv("PUBLISH_TOKEN"))))
         // pluginVersion is based on the SemVer (https://semver.org) and supports pre-release labels, like 2.1.7-alpha.3
         // Specify pre-release label to publish the plugin in a custom Release Channel automatically. Read more:
         // https://plugins.jetbrains.com/docs/intellij/deployment.html#specifying-a-release-channel
