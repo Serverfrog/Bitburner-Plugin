@@ -1,18 +1,24 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
     <id>com.github.serverfrog.bitburnerplugin</id>
-    <name>Bitburner-Plugin</name>
-    <vendor>serverfrog</vendor>
+    <name>Bitburner-Connector</name>
+    <vendor>Serverfrog</vendor>
 
     <depends>com.intellij.modules.platform</depends>
 
-    <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="com.github.serverfrog.bitburnerplugin.services.MyApplicationService"/>
-        <projectService serviceImplementation="com.github.serverfrog.bitburnerplugin.services.MyProjectService"/>
-    </extensions>
+    <actions>
+        <group id="com.github.serverfrog.bitburnerplugin.action.BitburnerActionGroup"
+               class="com.github.serverfrog.bitburnerplugin.action.BitburnerActionGroup" text="Bitburner Actions">
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="first"/>
+        </group>
+    </actions>
 
-    <applicationListeners>
-        <listener class="com.github.serverfrog.bitburnerplugin.listeners.MyProjectManagerListener"
-                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
-    </applicationListeners>
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationConfigurable parentId="tools"
+                                 instance="com.github.serverfrog.bitburnerplugin.config.BitburnerSettings"
+                                 id="com.github.serverfrog.bitburnerplugin.config.BitburnerSettings"
+                                 displayName="BitBurner-Sync"/>
+        <notificationGroup id="com.github.serverfrog.bitburnerplugin" displayType="TOOL_WINDOW" key="name"/>
+
+    </extensions>
 </idea-plugin>
