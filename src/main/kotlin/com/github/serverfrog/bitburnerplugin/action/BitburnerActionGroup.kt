@@ -7,13 +7,14 @@ import com.intellij.openapi.actionSystem.CommonDataKeys
 
 class BitburnerActionGroup : ActionGroup() {
     private val projectViewPopup = "ProjectViewPopup"
+    private val editorPopup = "EditorPopup"
 
     private val extensions = arrayListOf("js", "script", "ns", "txt")
 
     override fun getChildren(e: AnActionEvent?): Array<AnAction> {
         var actions = emptyArray<AnAction>()
 
-        if (e?.place == projectViewPopup &&
+        if ((e?.place == projectViewPopup || e?.place == editorPopup) &&
             extensions.contains(e.dataContext.getData(CommonDataKeys.VIRTUAL_FILE)?.canonicalFile?.extension)
         ) {
             actions = append(actions, BitburnerPushAction())

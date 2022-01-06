@@ -10,6 +10,7 @@
         <group id="com.github.serverfrog.bitburnerplugin.action.BitburnerActionGroup"
                class="com.github.serverfrog.bitburnerplugin.action.BitburnerActionGroup" text="Bitburner Actions">
             <add-to-group group-id="ProjectViewPopupMenu" anchor="first"/>
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
         </group>
     </actions>
 
