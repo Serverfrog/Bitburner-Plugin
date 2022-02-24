@@ -10,6 +10,6 @@ class BitburnerPushAction() : AnAction(MyBundle.message("pushActionLabel")) {
 
     override fun actionPerformed(e: AnActionEvent) {
         val file = e.dataContext.getData(CommonDataKeys.VIRTUAL_FILE)?.canonicalFile!!
-        PushToBitburner.pushToBitburner(file, e)
+        PushToBitburner.pushToBitburner(file, e.project)
     }
 }

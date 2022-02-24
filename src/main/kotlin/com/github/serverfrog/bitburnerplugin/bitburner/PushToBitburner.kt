@@ -5,7 +5,7 @@ import com.github.serverfrog.bitburnerplugin.config.BitburnerSettings
 import com.intellij.notification.NotificationGroup
 import com.intellij.notification.NotificationGroupManager
 import com.intellij.notification.NotificationType
-import com.intellij.openapi.actionSystem.AnActionEvent
+import com.intellij.openapi.project.Project
 import com.intellij.openapi.vfs.VirtualFile
 import java.net.URI
 import java.net.http.HttpClient
@@ -22,7 +22,7 @@ class PushToBitburner {
         private val notificationGroup: NotificationGroup = NotificationGroupManager.getInstance()
             .getNotificationGroup(MyBundle.message("groupId"))
 
-        fun pushToBitburner(file: VirtualFile, e: AnActionEvent) {
+        fun pushToBitburner(file: VirtualFile, project: Project?) {
 
 
             val client = HttpClient.newBuilder().build()
@@ -34,9 +34,9 @@ class PushToBitburner {
             val response = client.send(request, HttpResponse.BodyHandlers.ofString())
             val status = response.statusCode()
             if (status == 200) {
-                sendNotification(MyBundle.message("successMessage"), e)
+                sendNotification(MyBundle.message("successMessage"), project)
             } else {
-                sendNotification(MyBundle.message("failedMessage"), e)
+                sendNotification(MyBundle.message("failedMessage"), project)
             }
 
 
@@ -51,10 +51,10 @@ class PushToBitburner {
             return "{\"filename\": \"$fileName\" ,\"code\": \"$encode\"}"
         }
 
-        private fun sendNotification(message: String, e: AnActionEvent) {
+        private fun sendNotification(message: String, project: Project?) {
             val notification =
                 notificationGroup.createNotification(message, NotificationType.INFORMATION)
-            notification.notify(e.project)
+            notification.notify(project)
 
         }
     }
