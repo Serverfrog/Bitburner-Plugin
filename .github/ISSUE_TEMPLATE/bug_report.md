@@ -27,6 +27,7 @@ If applicable, add screenshots to help explain your problem.
  - OS: [e.g. iOS]
  - Platform[e.g. steam]
  - Version [e.g. 22]
+ - IDE Version [e.g. 2022.1, 221.4501.155]
 
 
 **Additional context**
