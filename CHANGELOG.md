@@ -4,8 +4,10 @@
 
 ## [Unreleased]
 
+## [0.0.3]
+added PR #12
+
 ## [0.0.2]
 ### Added
 - Filewatcher which automatically pushes to Bitburner
 - Updated IDEA Version
-
