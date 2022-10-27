@@ -8,9 +8,6 @@ import com.intellij.notification.NotificationGroupManager
 import com.intellij.notification.NotificationType
 import com.intellij.openapi.actionSystem.CommonDataKeys
 import com.intellij.openapi.project.Project
-import com.intellij.openapi.vfs.VirtualFile
-import com.intellij.psi.search.FilenameIndex
-import com.intellij.psi.search.GlobalSearchScope
 import java.net.URI
 import java.net.http.HttpClient
 import java.net.http.HttpRequest
@@ -21,6 +18,8 @@ import java.util.regex.Pattern
 
 class Bitburner {
     companion object {
+
+        // List of File Extensions BitBurner recognize
         val extensions = arrayListOf("js", "script")
 
         private val uri: URI = URI.create("http://localhost:9990/")
@@ -75,12 +74,6 @@ class Bitburner {
             sendNotification(information)
         }
 
-        fun getListOfProjectVirtualFilesByExt(extName: String = "*"): MutableCollection<VirtualFile> {
-            val project: Project = getProject()
-            val scope = GlobalSearchScope.projectScope(project)
-            return FilenameIndex.getAllFilesByExt(project, extName, scope)
-        }
-
         fun getFileName(filePath: String): String {
             val project: Project = getProject()
 
@@ -90,7 +83,7 @@ class Bitburner {
                 .replace("\\", "/")
         }
 
-        private fun getProject(): Project {
+        fun getProject(): Project {
             val dataContext = DataManager.getInstance().dataContextFromFocusAsync.blockingGet(100)!!
             return dataContext.getData(CommonDataKeys.PROJECT)!!
         }
