@@ -62,10 +62,10 @@ jobs:
           CHANGELOG="${CHANGELOG//$'\n'/'%0A'}"
           CHANGELOG="${CHANGELOG//$'\r'/'%0D'}"
 
-          echo "::set-output name=version::$VERSION"
-          echo "::set-output name=name::$NAME"
-          echo "::set-output name=changelog::$CHANGELOG"
-          echo "::set-output name=pluginVerifierHomeDir::~/.pluginVerifier"
+          echo "{version}={$VERSION}" >> $GITHUB_STATE
+          echo "{name}=$NAME}" >> $GITHUB_STATE
+          echo "{changelog}={$CHANGELOG}" >> $GITHUB_STATE
+          echo "{pluginVerifierHomeDir}={~/.pluginVerifier}" >> $GITHUB_STATE
 
           ./gradlew listProductsReleases # prepare list of IDEs for Plugin Verifier
 
@@ -113,7 +113,7 @@ jobs:
           FILENAME=`ls *.zip`
           unzip "$FILENAME" -d content
 
-          echo "::set-output name=filename::$FILENAME"
+          echo "{filename}={$FILENAME}" >> $GITHUB_STATE
 
       # Store already-built plugin as an artifact for downloading
       - name: Upload artifact
