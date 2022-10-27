@@ -19,8 +19,9 @@
                                  instance="com.github.serverfrog.bitburnerplugin.config.BitburnerSettings"
                                  id="com.github.serverfrog.bitburnerplugin.config.BitburnerSettings"
                                  displayName="BitBurner-Sync"/>
-        <notificationGroup id="com.github.serverfrog.bitburnerplugin" displayType="TOOL_WINDOW" key="name"/>
+        <notificationGroup id="com.github.serverfrog.bitburnerplugin" displayType="TOOL_WINDOW" key="bitburnerplugin"/>
     </extensions>
+
     <applicationListeners>
         <listener class="com.github.serverfrog.bitburnerplugin.listener.FileWatcher"
                   topic="com.intellij.openapi.vfs.newvfs.BulkFileListener"/>
