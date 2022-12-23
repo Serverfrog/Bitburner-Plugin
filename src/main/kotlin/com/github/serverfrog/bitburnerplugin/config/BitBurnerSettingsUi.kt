@@ -9,10 +9,8 @@ import javax.swing.JPanel
 import javax.swing.JPasswordField
 
 class BitBurnerSettingsUi : ConfigurableUi<BitburnerSettings> {
-
     private val myAuthTokenField: JPasswordField = JPasswordField()
     private val myAuthTokenLabel: JLabel = JLabel(MyBundle.message("authToken"))
-
     private val myPanel: JPanel = JPanel()
 
     init {
