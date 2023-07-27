@@ -4,8 +4,9 @@
 
 ## Unreleased
 
-### Updated
+## 0.0.6 - 2023-07-27
 
+### Updated
 - Update Plugin org.jetbrains.kotlin.jvm to version 1.9.0
 - Update Plugin org.jetbrains.intellij to version 1.15.0
 - Update Plugin org.jetbrains.changelog to version 2.1.2
@@ -18,7 +19,6 @@
 ## 0.0.5
 
 ### Updated
-
 - Updated Plugin org.jetbrains.kotlin.jvm to 1.8.10
 - Updated Plugin org.jetbrains.intellij to 1.13.2
 - Updated Plugin org.jetbrains.changelog to 2.0.0
@@ -29,25 +29,21 @@
 ## 0.0.4
 
 ### Updated
-
 - Updated Plugin org.jetbrains.kotlin.jvm to 1.7.10
 - Updated Plugin org.jetbrains.intellij to 1.7.0
 - Updated `pluginUntilBuild` to 222.*
 - Updated used Gradle Version to 7.5
 
 ### Added
-
 - Added Plugin com.github.ben-manes.versions
 
 ## 0.0.3
 
 ### Added
-
 - added PR #12
 
 ## 0.0.2
 
 ### Added
-
 - Filewatcher which automatically pushes to Bitburner
 - Updated IDEA Version
