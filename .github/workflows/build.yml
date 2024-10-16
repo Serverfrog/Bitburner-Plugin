@@ -117,10 +117,10 @@ jobs:
 
       # Store already-built plugin as an artifact for downloading
       - name: Upload artifact
-        uses: actions/upload-artifact@v2.2.4
+        uses: actions/upload-artifact@v4
         with:
           name: ${{ steps.artifact.outputs.filename }}
-          path: ./build/distributions/content/*/*
+          path: ./build/distributions/content/*/*   # Ensure the path resolves correctly
 
   # Prepare a draft release for GitHub Releases page for the manual verification
   # If accepted and published, release workflow would be triggered
