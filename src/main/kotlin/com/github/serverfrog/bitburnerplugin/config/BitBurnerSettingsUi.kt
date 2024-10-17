@@ -6,32 +6,35 @@ import java.awt.GridLayout
 import javax.swing.JComponent
 import javax.swing.JLabel
 import javax.swing.JPanel
-import javax.swing.JPasswordField
+import javax.swing.JTextField
 
 class BitBurnerSettingsUi : ConfigurableUi<BitburnerSettings> {
 
-    private val myAuthTokenField: JPasswordField = JPasswordField()
-    private val myAuthTokenLabel: JLabel = JLabel(MyBundle.message("authToken"))
-
     private val myPanel: JPanel = JPanel()
+    private val portField = JTextField()
 
     init {
-        val layout = GridLayout(1, 2, 5, 5)
-        myPanel.layout = layout
-        myPanel.add(myAuthTokenLabel)
-        myPanel.add(myAuthTokenField)
-    }
-
-    override fun reset(settings: BitburnerSettings) {
-        myAuthTokenField.text = BitburnerSettings.getAuthToken()
+        myPanel.layout = GridLayout(1, 2)
+        myPanel.add(JLabel(MyBundle.getMessage("systemWidePort")))
+        myPanel.add(portField)
     }
 
     override fun isModified(settings: BitburnerSettings): Boolean {
-        return !myAuthTokenField.password.contentEquals(BitburnerSettings.getAuthToken()?.toCharArray())
+        val systemPort = settings.getSystemPort()
+
+        return systemPort?.toString() != portField.text
     }
 
     override fun apply(settings: BitburnerSettings) {
-        BitburnerSettings.setAuthToken(String(myAuthTokenField.password))
+        val port = portField.text.toIntOrNull()
+
+        if (port != null) {
+            settings.setSystemPort(port)
+        }
+    }
+
+    override fun reset(settings: BitburnerSettings) {
+        portField.text = settings.getSystemPort()?.toString() ?: "12525"
     }
 
     override fun getComponent(): JComponent {

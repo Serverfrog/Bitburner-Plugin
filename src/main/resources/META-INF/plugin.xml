@@ -19,6 +19,10 @@
                                  instance="com.github.serverfrog.bitburnerplugin.config.BitburnerSettings"
                                  id="com.github.serverfrog.bitburnerplugin.config.BitburnerSettings"
                                  displayName="BitBurner-Sync"/>
+        <projectConfigurable parentId="tools"
+                             instance="com.github.serverfrog.bitburnerplugin.config.BitburnerProjectSettings"
+                             id="com.github.serverfrog.bitburnerplugin.config.BitburnerProjectSettings"
+                             displayName="BitBurner-Sync (Project)"/>
         <notificationGroup id="com.github.serverfrog.bitburnerplugin" displayType="TOOL_WINDOW" key="name"/>
     </extensions>
     <applicationListeners>

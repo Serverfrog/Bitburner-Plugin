@@ -5,7 +5,7 @@ import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.CommonDataKeys
 
-val extensions = arrayListOf("js", "script", "ns", "txt")
+val extensions = arrayListOf("js", "script", "txt")
 class BitburnerActionGroup : ActionGroup() {
     private val projectViewPopup = "ProjectViewPopup"
     private val editorPopup = "EditorPopup"

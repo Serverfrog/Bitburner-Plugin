@@ -6,6 +6,17 @@
 
 ### Updated
 
+## 0.0.7
+
+### Updated
+
+- Update Build-system with the latest version from the Plugin Template
+- Removed pluginUntilBuild
+
+## 0.0.6
+
+### Updated
+
 - Update Plugin org.jetbrains.kotlin.jvm to version 1.9.0
 - Update Plugin org.jetbrains.intellij to version 1.15.0
 - Update Plugin org.jetbrains.changelog to version 2.1.2

@@ -7,17 +7,6 @@ fun properties(key: String) = project.findProperty(key).toString()
 plugins {
     // Java support
     id("java")
-    // Kotlin support
-//    id("org.jetbrains.kotlin.jvm") version "2.0.21"
-//    // Gradle IntelliJ Plugin
-//    id("org.jetbrains.intellij") version "1.17.0"
-//    // Gradle Changelog Plugin
-//    id("org.jetbrains.changelog") version "2.2.1"
-//    // Gradle Qodana Plugin
-//    id("org.jetbrains.qodana") version "0.1.13"
-//    // Dependency Updates
-//    id("com.github.ben-manes.versions") version "0.51.0"
-
     alias(libs.plugins.kotlin) // Kotlin support
     alias(libs.plugins.intelliJPlatform) // IntelliJ Platform Gradle Plugin
     alias(libs.plugins.changelog) // Gradle Changelog Plugin
@@ -30,7 +19,7 @@ version = properties("pluginVersion")
 
 
 kotlin {
-    jvmToolchain(17)
+    jvmToolchain(21)
 }
 // Configure project's dependencies
 repositories {
@@ -44,6 +33,7 @@ repositories {
 dependencies {
     testImplementation(libs.junit)
     testImplementation("org.opentest4j:opentest4j:1.3.0")
+    implementation("org.java-websocket:Java-WebSocket:1.5.7")
 
     // IntelliJ Platform Gradle Plugin Dependencies Extension - read more: https://plugins.jetbrains.com/docs/intellij/tools-intellij-platform-gradle-plugin-dependencies-extension.html
     intellijPlatform {
