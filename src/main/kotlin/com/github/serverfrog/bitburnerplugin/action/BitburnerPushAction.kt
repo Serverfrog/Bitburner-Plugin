@@ -6,7 +6,7 @@ import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.CommonDataKeys
 
-class BitburnerPushAction() : AnAction(MyBundle.message("pushActionLabel")) {
+class BitburnerPushAction : AnAction(MyBundle.message("pushActionLabel")) {
 
     override fun actionPerformed(e: AnActionEvent) {
         val file = e.dataContext.getData(CommonDataKeys.VIRTUAL_FILE)?.canonicalFile!!

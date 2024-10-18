@@ -4,7 +4,7 @@ import com.github.serverfrog.bitburnerplugin.MyBundle
 import com.intellij.openapi.options.ConfigurableBase
 
 
-class BitburnerSettings() : ConfigurableBase<BitBurnerSettingsUi, BitburnerSettings>(
+class BitburnerSettings : ConfigurableBase<BitBurnerSettingsUi, BitburnerSettings>(
     "com.github.serverfrog.bitburnerplugin.config.BitburnerSettings", MyBundle.message("name"),
     "com.github.serverfrog.bitburnerplugin.config.BitburnerSettings"
 ) {

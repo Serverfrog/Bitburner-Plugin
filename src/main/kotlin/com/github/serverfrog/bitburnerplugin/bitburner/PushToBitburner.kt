@@ -42,9 +42,9 @@ class PushToBitburner {
 
         private fun setUpServer(project: Project) {
             val serverService = project.getService(ServerService::class.java)
+            messageHandler = serverService.getMessageHandler()
             if (serverService.isServerRunning()) return
             serverService.startServer()
-            messageHandler = serverService.getMessageHandler()
         }
 
         private fun sendNotification(message: String, project: Project?) {

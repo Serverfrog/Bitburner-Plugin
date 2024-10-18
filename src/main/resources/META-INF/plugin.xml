@@ -24,9 +24,13 @@
                              id="com.github.serverfrog.bitburnerplugin.config.BitburnerProjectSettings"
                              displayName="BitBurner-Sync (Project)"/>
         <notificationGroup id="com.github.serverfrog.bitburnerplugin" displayType="TOOL_WINDOW" key="name"/>
+        <statusBarWidgetFactory implementation="com.github.serverfrog.bitburnerplugin.ui.StatusWidgetFactory"
+                                id="BBSStatusWidgetFactory"/>
     </extensions>
     <applicationListeners>
         <listener class="com.github.serverfrog.bitburnerplugin.listener.FileWatcher"
                   topic="com.intellij.openapi.vfs.newvfs.BulkFileListener"/>
+        <listener class="com.github.serverfrog.bitburnerplugin.listener.FileOpenedListener"
+                  topic="com.intellij.openapi.fileEditor.FileEditorManagerListener"/>
     </applicationListeners>
 </idea-plugin>

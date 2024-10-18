@@ -6,6 +6,7 @@ import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.CommonDataKeys
 
 val extensions = arrayListOf("js", "script", "txt")
+
 class BitburnerActionGroup : ActionGroup() {
     private val projectViewPopup = "ProjectViewPopup"
     private val editorPopup = "EditorPopup"
@@ -23,7 +24,7 @@ class BitburnerActionGroup : ActionGroup() {
     }
 
 
-    fun append(arr: Array<AnAction>, element: AnAction): Array<AnAction> {
+    private fun append(arr: Array<AnAction>, element: AnAction): Array<AnAction> {
         val list: MutableList<AnAction> = arr.toMutableList()
         list.add(element)
         return list.toTypedArray()

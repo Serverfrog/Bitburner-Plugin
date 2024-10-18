@@ -8,8 +8,8 @@ import org.java_websocket.WebSocket
 import org.java_websocket.handshake.ClientHandshake
 import org.java_websocket.server.WebSocketServer
 
-class Server(val settings: BitburnerSettings, val messageHandler: MessageHandler) :
-    WebSocketServer(java.net.InetSocketAddress(12525)) {
+class Server(val settings: BitburnerSettings, val messageHandler: MessageHandler, val emitUpdate: () -> Unit) :
+    WebSocketServer(java.net.InetSocketAddress(settings.getSystemPort())) {
 
 
     var clients = ArrayList<WebSocket>()
@@ -20,6 +20,7 @@ class Server(val settings: BitburnerSettings, val messageHandler: MessageHandler
         clients.add(conn!!)
         val queue = messageHandler.project.getService(CommunicationQueue::class.java)
         queue.onClientsConnected()
+        emitUpdate()
     }
 
     override fun onClose(conn: WebSocket?, code: Int, reason: String?, remote: Boolean) {
@@ -28,6 +29,7 @@ class Server(val settings: BitburnerSettings, val messageHandler: MessageHandler
             val queue = messageHandler.project.getService(CommunicationQueue::class.java)
             queue.noClients()
         }
+        emitUpdate()
     }
 
     override fun onMessage(conn: WebSocket?, message: String?) {

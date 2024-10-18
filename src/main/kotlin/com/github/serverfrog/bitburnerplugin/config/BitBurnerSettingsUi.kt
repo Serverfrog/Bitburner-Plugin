@@ -22,7 +22,7 @@ class BitBurnerSettingsUi : ConfigurableUi<BitburnerSettings> {
     override fun isModified(settings: BitburnerSettings): Boolean {
         val systemPort = settings.getSystemPort()
 
-        return systemPort?.toString() != portField.text
+        return systemPort.toString() != portField.text
     }
 
     override fun apply(settings: BitburnerSettings) {
@@ -34,7 +34,7 @@ class BitBurnerSettingsUi : ConfigurableUi<BitburnerSettings> {
     }
 
     override fun reset(settings: BitburnerSettings) {
-        portField.text = settings.getSystemPort()?.toString() ?: "12525"
+        portField.text = settings.getSystemPort().toString()
     }
 
     override fun getComponent(): JComponent {

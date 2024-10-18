@@ -12,7 +12,6 @@ import com.intellij.openapi.vfs.newvfs.events.VFileEvent
 class FileWatcher : BulkFileListener {
 
     override fun after(events: MutableList<out VFileEvent>) {
-
         val dataContext = DataManager.getInstance().dataContextFromFocusAsync.blockingGet(100)!!
         val project: Project = dataContext.getData(CommonDataKeys.PROJECT) ?: return
 
