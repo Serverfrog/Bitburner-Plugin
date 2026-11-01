@@ -2,8 +2,7 @@ package com.github.serverfrog.bitburnerplugin.bitburner
 
 import com.github.serverfrog.bitburnerplugin.MyBundle
 import com.github.serverfrog.bitburnerplugin.config.BitburnerSettings
-import com.intellij.notification.NotificationGroup
-import com.intellij.notification.NotificationGroupManager
+import com.intellij.notification.Notification
 import com.intellij.notification.NotificationType
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.vfs.VirtualFile
@@ -20,8 +19,7 @@ val uri: URI = URI.create("http://localhost:9990/")
 class PushToBitburner {
 
     companion object {
-        private val notificationGroup: NotificationGroup = NotificationGroupManager.getInstance()
-            .getNotificationGroup(MyBundle.message("groupId"))
+        private const val NOTIFICATION_GROUP_ID = "com.github.serverfrog.bitburnerplugin"
 
         fun pushToBitburner(file: VirtualFile, project: Project) {
 
@@ -54,10 +52,7 @@ class PushToBitburner {
         }
 
         private fun sendNotification(message: String, project: Project?) {
-            val notification =
-                notificationGroup.createNotification(message, NotificationType.INFORMATION)
-            notification.notify(project)
-
+            Notification(NOTIFICATION_GROUP_ID, message, NotificationType.INFORMATION).notify(project)
         }
     }
 

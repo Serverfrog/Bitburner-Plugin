@@ -1,31 +1,47 @@
 package com.github.serverfrog.bitburnerplugin
 
-import com.intellij.ide.highlighter.XmlFileType
-import com.intellij.psi.xml.XmlFile
-import com.intellij.testFramework.TestDataPath
-import com.intellij.testFramework.fixtures.BasePlatformTestCase
-import com.intellij.util.PsiErrorElementUtil
+import org.junit.Test
+import org.junit.Assert.*
 
-@TestDataPath("\$CONTENT_ROOT/src/test/testData")
-class MyPluginTest : BasePlatformTestCase() {
+class MyPluginTest {
 
-    fun testXMLFile() {
-        val psiFile = myFixture.configureByText(XmlFileType.INSTANCE, "<foo>bar</foo>")
-        val xmlFile = assertInstanceOf(psiFile, XmlFile::class.java)
+    @Test
+    fun testMyBundleMessageReturnsValue() {
+        // Act
+        val message = MyBundle.message("name")
 
-        assertFalse(PsiErrorElementUtil.hasErrors(project, xmlFile.virtualFile))
-
-        assertNotNull(xmlFile.rootTag)
-
-        xmlFile.rootTag?.let {
-            assertEquals("foo", it.name)
-            assertEquals("bar", it.value.text)
-        }
+        // Assert
+        assertNotNull(message)
+        assertFalse(message.isEmpty())
     }
 
-    override fun getTestDataPath() = "src/test/testData/rename"
+    @Test
+    fun testMyBundleMessageSuccessMessage() {
+        // Act
+        val message = MyBundle.message("successMessage")
 
-    fun testRename() {
-        myFixture.testRename("foo.xml", "foo_after.xml", "a2")
+        // Assert
+        assertNotNull(message)
+        assertFalse(message.isEmpty())
+    }
+
+    @Test
+    fun testMyBundleMessageFailedMessage() {
+        // Act
+        val message = MyBundle.message("failedMessage")
+
+        // Assert
+        assertNotNull(message)
+        assertFalse(message.isEmpty())
+    }
+
+    @Test
+    fun testMyBundleMessagePushActionLabel() {
+        // Act
+        val message = MyBundle.message("pushActionLabel")
+
+        // Assert
+        assertNotNull(message)
+        assertFalse(message.isEmpty())
     }
 }
