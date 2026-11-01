@@ -3,6 +3,7 @@
     <id>com.github.serverfrog.bitburnerplugin</id>
     <name>Bitburner-Connector</name>
     <vendor>Serverfrog</vendor>
+    <description>IntelliJ plugin for Bitburner game integration, enabling file synchronization and project actions.</description>
 
     <depends>com.intellij.modules.platform</depends>
 
