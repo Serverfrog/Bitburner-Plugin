@@ -2,20 +2,16 @@
 
 # Bitburner-Plugin Changelog
 
-## Unreleased
+## [Unreleased]
 
-### Updated
+## [0.0.8] - 2026-11-01
 
-- Update Plugin org.jetbrains.kotlin.jvm to version 1.9.0
-- Update Plugin org.jetbrains.intellij to version 1.15.0
-- Update Plugin org.jetbrains.changelog to version 2.1.2
-- Update Plugin org.jetbrains.qodana to version 0.1.13
-- Update Plugin com.github.ben-manes.versions to version 0.47.0
-- Updated `pluginUntilBuild` to 232.*
-- Updated used Gradle Version to 8.2.1
-- Update Code for Changelog Generation
+- Add qodana CI checks by @qodana-cloud[bot] in https://github.com/Serverfrog/Bitburner-Plugin/pull/28
+- upgrade and update. Some tests added by @Serverfrog in https://github.com/Serverfrog/Bitburner-Plugin/pull/30
+- Task/upgrade by @Serverfrog in https://github.com/Serverfrog/Bitburner-Plugin/pull/31
+- @qodana-cloud[bot] made their first contribution in https://github.com/Serverfrog/Bitburner-Plugin/pull/28
 
-## 0.0.5
+## [0.0.5]
 
 ### Updated
 
@@ -26,7 +22,7 @@
 - Updated `pluginUntilBuild` to 231.*
 - Updated used Gradle Version to 8.0
 
-## 0.0.4
+## [0.0.4]
 
 ### Updated
 
@@ -39,15 +35,22 @@
 
 - Added Plugin com.github.ben-manes.versions
 
-## 0.0.3
+## [0.0.3]
 
 ### Added
 
 - added PR #12
 
-## 0.0.2
+## [0.0.2]
 
 ### Added
 
 - Filewatcher which automatically pushes to Bitburner
 - Updated IDEA Version
+
+[Unreleased]: https://github.com/Serverfrog/Bitburner-Plugin/compare/v0.0.8...HEAD
+[0.0.8]: https://github.com/Serverfrog/Bitburner-Plugin/compare/v0.0.5...v0.0.8
+[0.0.5]: https://github.com/Serverfrog/Bitburner-Plugin/compare/v0.0.4...v0.0.5
+[0.0.4]: https://github.com/Serverfrog/Bitburner-Plugin/compare/v0.0.3...v0.0.4
+[0.0.3]: https://github.com/Serverfrog/Bitburner-Plugin/compare/v0.0.2...v0.0.3
+[0.0.2]: https://github.com/Serverfrog/Bitburner-Plugin/commits/v0.0.2
