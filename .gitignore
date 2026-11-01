@@ -3,3 +3,5 @@
 .qodana
 build
 local
+.intellijPlatform
+.kotlin
